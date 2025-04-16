@@ -1,0 +1,12 @@
+{
+    "name": "kinnixx/pulse-track",
+    "authors": [
+        {
+            "name": "Kinnixx",
+            "email": "anais.delattre1@gmail.com"
+        }
+    ],
+    "require": {
+        "bcosca/fatfree": "^3.9"
+    }
+}
