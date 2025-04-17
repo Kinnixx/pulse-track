@@ -2,7 +2,10 @@
 
 require 'vendor/autoload.php';
 
+// Load DB connection
 $pdo = require 'config/database.php';
+
+// Fat-Free instance
 $f3 = \Base::instance();
 
 // Routes

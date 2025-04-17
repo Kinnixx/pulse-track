@@ -2,6 +2,10 @@
 
 class EventsController
 {
+    /**
+     * Handles POST /events
+     * Inserts a new event into DB
+     */
     public static function create($f3, $pdo)
     {
         $type = $f3->get('POST.type');

@@ -2,8 +2,8 @@
 
 use Dotenv\Dotenv;
 
+// Load env variables from .env file
 require_once __DIR__ . '/../vendor/autoload.php';
-
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
@@ -18,5 +18,6 @@ try {
 
     return $pdo;
 } catch (PDOException $e) {
+    // If DB connection fails
     die('DB Error: ' . $e->getMessage());
 }
