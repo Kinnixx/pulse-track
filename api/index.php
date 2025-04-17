@@ -1,5 +1,10 @@
 <?php 
 
+// Allow CORS from localhost:4200 (Ember)
+header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
 require 'vendor/autoload.php';
 
 // Load DB connection
