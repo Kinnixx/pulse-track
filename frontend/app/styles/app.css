@@ -60,7 +60,7 @@ main {
   margin: 2rem auto;
   padding: 1rem;
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgb(0 0 0 / 5%);
   border-radius: 8px;
 }
 
@@ -71,7 +71,7 @@ footer {
   color: #6b7280;
 }
 
-
+/* Home */
 .home {
   text-align: center;
   padding: 3rem 1rem;
@@ -86,7 +86,7 @@ footer {
 .home p {
   font-size: 1.1rem;
   max-width: 600px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 2rem;
   color: #374151;
 }
 
@@ -117,4 +117,38 @@ footer {
 
 .btn-secondary:hover {
   background-color: #4b5563;
+}
+
+/* Form */
+.create-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
+}
+
+.create-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4c1d95;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #374151;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
 }
