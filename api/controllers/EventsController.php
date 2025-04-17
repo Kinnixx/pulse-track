@@ -11,7 +11,7 @@ class EventsController
         $type = $f3->get('POST.type');
         $message = $f3->get('POST.message');
 
-        if(!$type || $message) {
+        if(!$type || !$message) {
             http_response_code(400);
             echo json_encode(['error' => 'Missing type or message']);
             
