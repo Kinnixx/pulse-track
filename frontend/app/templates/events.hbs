@@ -1,14 +1,3 @@
 <h1>Events Logs</h1>
 
-{{#if this.model.length}}
-  <ul class="event-list">
-    {{#each this.model as |event|}}
-      <li>
-        <strong>{{event.type}}</strong> - {{event.message}}<br />
-        <small>{{event.created_at}}</small>
-      </li>
-    {{/each}}
-  </ul>
-{{else}}
-  <p>Aucun event pour l’instant 😢</p>
-{{/if}}
+<EventList @events={{this.model}} />

@@ -1,0 +1,22 @@
+<section class="filters">
+  <label for="filter">Filter by type :</label>
+  <select id="filter" {{on "change" this.updateFilter}}>
+    <option value="">All</option>
+    <option value="info">Info</option>
+    <option value="warning">Warning</option>
+    <option value="error">Error</option>
+  </select>
+</section>
+
+{{#if this.filteredEvents.length}}
+  <ul class="event-list">
+    {{#each this.filteredEvents as |event|}}
+      <li>
+        <strong>{{event.type}}</strong> - {{event.message}}<br />
+        <small>{{event.created_at}}</small>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No events found</p>
+{{/if}}

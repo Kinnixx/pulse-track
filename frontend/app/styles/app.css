@@ -152,3 +152,12 @@ input, select {
   border: 1px solid #d1d5db;
   border-radius: 4px;
 }
+
+/* Filter */
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
