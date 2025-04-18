@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default class CreateFormComponent extends Component {
   @service router;
+  @service notification;
 
   type = '';
   message = '';
@@ -23,7 +24,7 @@ export default class CreateFormComponent extends Component {
     event.preventDefault();
 
     if (!this.type || !this.message) {
-      alert('Type and message are required.');
+      this.notification.show('Type and message are required.', 'warning');
       return;
     }
 
@@ -39,10 +40,10 @@ export default class CreateFormComponent extends Component {
     });
 
     if (response.ok) {
-      alert('Event created!');
+      this.notification.show('Event successfully created!', 'success');
       this.router.transitionTo('events');
     } else {
-      alert('Failed to create event.');
+      this.notification.show('Failed to create event.', 'error');
     }
   }
 }
