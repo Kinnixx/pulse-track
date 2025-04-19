@@ -1,8 +1,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
+import { deleteEvent } from '../utils/api';
 
 export default class EventListComponent extends Component {
+  @service notification;
+
   @tracked events = [];
   @tracked selectedType = '';
   @tracked isLoading = true;
@@ -35,5 +39,23 @@ export default class EventListComponent extends Component {
   @action
   updateFilter(event) {
     this.selectedType = event.target.value;
+  }
+
+  /**
+ * Handles the deletion of a specific event by calling the API
+ * and displaying a notification.
+ *
+ * @param {number} id - The ID of the event to delete.
+ * @returns {Promise<void>}
+ */
+  @action
+  async removeEvent(id) {
+    const response = await deleteEvent(id);
+
+    if (response) {
+      this.notification.show('Event removed.', 'success');
+    } else {
+      this.notification.show('Failed to remove event.', 'error');
+    }
   }
 }

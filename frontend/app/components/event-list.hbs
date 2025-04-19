@@ -13,8 +13,21 @@
   {{else if this.filteredEvents.length}}
     <ul class="event-list">
       {{#each this.filteredEvents as |event|}}
-        <li>
-          <strong class="{{event.type}}">{{event.type}}</strong> - {{event.message}}<br />
+        <li class="event-item">
+          <div class="event-row">
+            <div class="event-content">
+              <strong class="{{event.type}}">{{event.type}}</strong> - {{event.message}}
+            </div>
+            <button
+              class="icon-delete"
+              type="button"
+              aria-label="Delete event"
+              title="Delete event"
+              {{on "click" (fn this.removeEvent event.id)}}
+            >
+              🗑️
+            </button>
+          </div>
           <small>{{event.created_at}}</small>
         </li>
       {{/each}}

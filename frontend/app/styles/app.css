@@ -137,6 +137,16 @@ button:hover,
   background-color: #374151;
 }
 
+button.icon-delete {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
 /* ------------------------
    Home
 ------------------------ */
@@ -180,10 +190,24 @@ ul.event-list {
   margin: 0;
 }
 
-ul.event-list li {
+ul.event-list li.event-item {
   margin-bottom: 1.2rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid #e5e7eb;
+}
+
+ul.event-list .event-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+ul.event-list .event-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 ul.event-list strong {
