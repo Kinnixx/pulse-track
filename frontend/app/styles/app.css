@@ -1,18 +1,19 @@
-/* Reset minimal */
+/* === Global Reset === */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* === Base Body Style === */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9fafb;
   color: #111827;
   line-height: 1.6;
-  padding: 0;
 }
 
+/* === Header / Navigation === */
 header {
   background-color: #1f2937;
   color: white;
@@ -48,13 +49,7 @@ nav ul li a:hover {
   color: #a78bfa;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-
+/* === Layout === */
 main {
   max-width: 800px;
   margin: 2rem auto;
@@ -71,7 +66,62 @@ footer {
   color: #6b7280;
 }
 
-/* Home */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* === Form Elements === */
+.input,
+.select,
+input,
+select {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.select:focus,
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* === Buttons === */
+.btn {
+  display: inline-block;
+  background-color: #4c1d95;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #6d28d9;
+}
+
+.btn-secondary {
+  background-color: #6b7280;
+}
+
+.btn-secondary:hover {
+  background-color: #4b5563;
+}
+
+/* === Home Page === */
 .home {
   text-align: center;
   padding: 3rem 1rem;
@@ -96,30 +146,7 @@ footer {
   gap: 1rem;
 }
 
-.btn {
-  display: inline-block;
-  background-color: #4c1d95;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.2s ease-in-out;
-}
-
-.btn:hover {
-  background-color: #6d28d9;
-}
-
-.btn-secondary {
-  background-color: #6b7280;
-}
-
-.btn-secondary:hover {
-  background-color: #4b5563;
-}
-
-/* Form */
+/* === Create Form === */
 .create-form {
   max-width: 500px;
   margin: 2rem auto;
@@ -146,14 +173,7 @@ label {
   color: #374151;
 }
 
-input, select {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-}
-
-/* Filter */
+/* === Filters === */
 .filters {
   display: flex;
   justify-content: center;
@@ -162,7 +182,14 @@ input, select {
   gap: 0.5rem;
 }
 
-/* Notification Bar */
+/* === Loading Text === */
+.loading {
+  text-align: center;
+  font-style: italic;
+  color: #6b7280;
+}
+
+/* === Notification Bar === */
 .notification-bar {
   position: fixed;
   bottom: 20px;
