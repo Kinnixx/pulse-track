@@ -10,6 +10,7 @@ export default class EventListComponent extends Component {
   @tracked events = [];
   @tracked selectedType = '';
   @tracked isLoading = true;
+  @tracked deletingId = null;
 
   constructor() {
     super(...arguments);
@@ -50,12 +51,19 @@ export default class EventListComponent extends Component {
  */
   @action
   async removeEvent(id) {
+    this.deletingId = id;
+
+    await new Promise(resolve => setTimeout(resolve, 300))
+
     const response = await deleteEvent(id);
 
     if (response) {
+      this.events = this.events.filter(e => e.id !== id);
       this.notification.show('Event removed.', 'success');
     } else {
       this.notification.show('Failed to remove event.', 'error');
     }
+
+    this.deletingId = null;
   }
 }

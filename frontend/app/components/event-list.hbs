@@ -13,7 +13,7 @@
   {{else if this.filteredEvents.length}}
     <ul class="event-list">
       {{#each this.filteredEvents as |event|}}
-        <li class="event-item">
+        <li class="event-item {{if (eq this.deletingId event.id) "fade-out"}}">
           <div class="event-row">
             <div class="event-content">
               <strong class="{{event.type}}">{{event.type}}</strong> - {{event.message}}
@@ -23,6 +23,7 @@
               type="button"
               aria-label="Delete event"
               title="Delete event"
+              disabled={{eq this.deletingId event.id}}
               {{on "click" (fn this.removeEvent event.id)}}
             >
               🗑️
