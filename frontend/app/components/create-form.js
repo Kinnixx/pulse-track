@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { createEvent } from '../utils/api';
 
 export default class CreateFormComponent extends Component {
   @service router;
@@ -28,18 +29,9 @@ export default class CreateFormComponent extends Component {
       return;
     }
 
-    const response = await fetch('http://localhost:8000/events', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({
-        type: this.type,
-        message: this.message,
-      }),
-    });
+    const response = await createEvent({ type: this.type, message: this.message });
 
-    if (response.ok) {
+    if (response) {
       this.notification.show('Event successfully created!', 'success');
       this.router.transitionTo('events');
     } else {
