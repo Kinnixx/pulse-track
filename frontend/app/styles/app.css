@@ -191,6 +191,18 @@ ul.event-list strong {
   color: #6d28d9;
 }
 
+ul.event-list strong.info {
+  color: #3b82f6;
+}
+
+ul.event-list strong.warning {
+  color: #f59e0b;
+}
+
+ul.event-list strong.error {
+  color: #ef4444;
+}
+
 /* ------------------------
    Other forms
 ------------------------ */
