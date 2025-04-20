@@ -24,7 +24,12 @@
 
     <div class="sort-wrapper">
       <span>Sort by date</span>
-      <button class="sort-button" {{on "click" this.toggleSortOrder}}>
+      <button
+        class="sort-button"
+        type="button"
+        aria-label="Toggle sort order"
+        title="Sort by date"
+        {{on "click" this.toggleSortOrder}}>
         {{#if (eq this.sortOrder "asc")}}⬆️{{else}}⬇️{{/if}}
       </button>
     </div>
