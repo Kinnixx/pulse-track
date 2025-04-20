@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { createEvent } from '../utils/api';
 import { inject as service } from '@ember/service';
 
 export default class RandomEventGenerator extends Component {
   @service notification;
+  @service api;
 
   @action
   async generateEvent() {
@@ -32,7 +32,7 @@ export default class RandomEventGenerator extends Component {
     const messages = messagesByType[randomType];
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
-    const response = await createEvent({ type: randomType, message: randomMessage });
+    const response = await this.api.createEvent({ type: randomType, message: randomMessage });
 
     if (response) {
       this.notification.show('Random event created!', 'success');
