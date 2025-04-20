@@ -10,6 +10,7 @@ export default class EventListComponent extends Component {
   @tracked events = [];
   @tracked selectedType = '';
   @tracked selectedDate = null;
+  @tracked sortOrder = 'desc';
 
   @tracked isLoading = true;
   @tracked deletingId = null;
@@ -55,6 +56,13 @@ export default class EventListComponent extends Component {
       });
     }
 
+    // Sort by date
+    filtered = filtered.slice().sort((a, b) => {
+      const dateA = new Date(a.created_at);
+      const dateB = new Date(b.created_at);
+      return this.sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+    });
+
     return filtered;
   }
 
@@ -74,6 +82,14 @@ export default class EventListComponent extends Component {
   @action
   updateDateFilter(event) {
     this.selectedDate = event.target.value;
+  }
+
+  /**
+   * Update the sort order by date
+   */
+  @action
+  toggleSortOrder() {
+    this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
   }
 
 /**

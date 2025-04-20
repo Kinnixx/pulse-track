@@ -19,7 +19,16 @@
 
 {{#if this.isLoading}}
   <p class="loading">Loading events...</p>
+
   {{else if this.filteredEvents.length}}
+
+    <div class="sort-wrapper">
+      <span>Sort by date</span>
+      <button class="sort-button" {{on "click" this.toggleSortOrder}}>
+        {{#if (eq this.sortOrder "asc")}}⬆️{{else}}⬇️{{/if}}
+      </button>
+    </div>
+
     <ul class="event-list">
       {{#each this.filteredEvents as |event|}}
         <li class="event-item {{if (eq this.deletingId event.id) "fade-out"}}">
@@ -41,7 +50,9 @@
           <small>{{event.created_at}}</small>
         </li>
       {{/each}}
+
     </ul>
   {{else}}
+
     <p>No events found</p>
 {{/if}}

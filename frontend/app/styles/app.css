@@ -117,7 +117,6 @@ select:focus {
   box-shadow: 0 0 0 2px rgb(109 40 217 / 30%);
 }
 
-button,
 .btn {
   display: inline-block;
   background-color: #6d28d9;
@@ -132,7 +131,6 @@ button,
   text-decoration: none;
 }
 
-button:hover,
 .btn:hover {
   background-color: #a78bfa;
 }
@@ -309,6 +307,28 @@ label {
   border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 1rem;
+}
+
+.sort-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+button.sort-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+button.sort-button:hover {
+  background: none;
 }
 
 /* ------------------------
