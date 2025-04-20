@@ -192,6 +192,15 @@ button.icon-delete {
 /* ------------------------
    Event List
 ------------------------ */
+.event-title {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+
 ul.event-list {
   list-style: none;
   padding: 0;
@@ -263,11 +272,43 @@ label {
 /* ------------------------
    Filters
 ------------------------ */
-.filters {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.filters-box {
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 2rem 0 2rem 0;
+  border: 1px solid #e5e7eb;
+}
+
+.filters-box legend {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #374151;
   margin-bottom: 1rem;
+  padding: 0 0.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-group select,
+.filter-group input[type="date"] {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.filters input[type="date"] {
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
 /* ------------------------

@@ -9,14 +9,22 @@ export default class EventListComponent extends Component {
 
   @tracked events = [];
   @tracked selectedType = '';
+  @tracked selectedDate = null;
+
   @tracked isLoading = true;
   @tracked deletingId = null;
 
+  /**
+  * Fetches events from the backend API when the component is initialized.
+  */
   constructor() {
     super(...arguments);
     this.loadEvents();
   }
 
+  /**
+ * Loads all events from the API and stores them in the tracked `events` array.
+ */
   async loadEvents() {
     try {
       const response = await fetch('http://localhost:8000/events');
@@ -29,25 +37,50 @@ export default class EventListComponent extends Component {
     }
   }
 
+  /**
+ * Filters the list of events based on selected type and date.
+ * @returns {Array} The filtered list of events.
+ */
   get filteredEvents() {
-    if(!this.selectedType) {
-      return this.events;
+    let filtered = this.events;
+
+    if(this.selectedType) {
+      filtered = filtered.filter(event => event.type === this.selectedType);
     }
 
-    return this.events.filter(event => event.type === this.selectedType);
+    if(this.selectedDate) {
+      filtered = filtered.filter(event =>  {
+        const eventDate = event.created_at.split(' ')[0];
+        return eventDate === this.selectedDate;
+      });
+    }
+
+    return filtered;
   }
 
+  /**
+ * Updates the selected type for filtering.
+ * @param {Event} event The change event from the select input.
+ */
   @action
   updateFilter(event) {
     this.selectedType = event.target.value;
   }
 
   /**
- * Handles the deletion of a specific event by calling the API
- * and displaying a notification.
+ * Updates the selected date for filtering.
+ * @param {Event} event The change event from the date input.
+ */
+  @action
+  updateDateFilter(event) {
+    this.selectedDate = event.target.value;
+  }
+
+/**
+ * Deletes an event by its ID, updates the local list, and shows a notification.
+ * Adds a short delay for fade-out animation before removal.
  *
  * @param {number} id - The ID of the event to delete.
- * @returns {Promise<void>}
  */
   @action
   async removeEvent(id) {

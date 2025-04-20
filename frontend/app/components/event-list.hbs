@@ -1,12 +1,21 @@
-<section class="filters">
-  <label for="filter">Filter by type :</label>
-  <select id="filter" {{on "change" this.updateFilter}}>
-    <option value="">All</option>
-    <option value="info">Info</option>
-    <option value="warning">Warning</option>
-    <option value="error">Error</option>
-  </select>
-</section>
+<fieldset class="filters-box">
+  <legend>Filters</legend>
+
+  <div class="filter-group">
+    <label for="typeFilter">By type</label>
+    <select id="typeFilter" {{on "change" this.updateFilter}}>
+      <option value="">All</option>
+      <option value="info">Info</option>
+      <option value="warning">Warning</option>
+      <option value="error">Error</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="dateFilter">By date</label>
+    <input type="date" id="dateFilter" {{on "change" this.updateDateFilter}}>
+  </div>
+</fieldset>
 
 {{#if this.isLoading}}
   <p class="loading">Loading events...</p>
