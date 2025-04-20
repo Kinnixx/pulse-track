@@ -20,13 +20,6 @@ nav {
   margin: 0 auto;
 }
 
-nav h1 {
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-primary-light);
-}
-
 nav ul {
   list-style: none;
   display: flex;
@@ -51,6 +44,38 @@ nav ul li a.active {
   color: var(--color-primary-light);
   font-weight: bold;
   border-bottom: 2px solid var(--color-primary-light);
+}
+
+/* ------------------------
+   Logo
+------------------------ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 4rem;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: var(--color-primary-light);
+}
+
+/* ----- Responsive Logo ----- */
+@media (max-width: 600px) {
+  .logo-text {
+    display: none;
+  }
+
+  .logo-img {
+    height: 2.5rem;
+  }
 }
 
 /* ------------------------

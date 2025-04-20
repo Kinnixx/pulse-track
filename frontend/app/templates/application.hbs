@@ -2,7 +2,11 @@
 
 <header>
   <nav>
-    <h1>Pulse Track</h1>
+    <LinkTo @route="index" class="logo">
+      <img src="/assets/images/logo.png" alt="PulseTrack Logo" class="logo-img" />
+      <span class="logo-text">PulseTrack</span>
+    </LinkTo>
+
     <ul>
       <li><LinkTo @route="index">Home</LinkTo></li>
       <li><LinkTo @route="events">Events</LinkTo></li>
