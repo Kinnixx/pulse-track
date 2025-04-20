@@ -1,9 +1,19 @@
 <?php 
+require_once __DIR__ . '/vendor/autoload.php';
 
-// Allow CORS from localhost:4200 (Ember)
-header("Access-Control-Allow-Origin: http://localhost:4200");
-header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/');
+$dotenv->load();
+
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+$allowedOrigin = $_ENV['CORS_ORIGIN'];
+
+if ($origin === $allowedOrigin) {
+  header("Access-Control-Allow-Origin: $origin");
+  header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
+  header("Access-Control-Allow-Headers: Content-Type");
+}
 
 // Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
