@@ -1,7 +1,8 @@
 import Service from '@ember/service';
+import config from 'frontend/config/environment';
 
 export default class ApiService extends Service {
-  baseUrl = 'http://localhost:8000';
+  baseUrl = config.APP.apiBaseUrl;
 
 /**
  * Sends a GET request to retrieve all events.
