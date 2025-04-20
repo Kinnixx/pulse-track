@@ -2,10 +2,10 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { deleteEvent } from '../utils/api';
 
 export default class EventListComponent extends Component {
   @service notification;
+  @service api;
 
   @tracked events = [];
   @tracked selectedType = '';
@@ -23,13 +23,14 @@ export default class EventListComponent extends Component {
     this.loadEvents();
   }
 
-  /**
+ /**
  * Loads all events from the API and stores them in the tracked `events` array.
+ *
+ * @returns {Promise<void>}
  */
-  async loadEvents() {
+   async loadEvents() {
     try {
-      const response = await fetch('http://localhost:8000/events');
-      const data = await response.json();
+      const data = await this.api.getEvents();
       this.events = data;
     } catch (error) {
       console.error('Error fetching events:', error);
@@ -85,7 +86,7 @@ export default class EventListComponent extends Component {
   }
 
   /**
-   * Update the sort order by date
+   * Toggles the sort order between ascending and descending.
    */
   @action
   toggleSortOrder() {
@@ -104,7 +105,7 @@ export default class EventListComponent extends Component {
 
     await new Promise(resolve => setTimeout(resolve, 300))
 
-    const response = await deleteEvent(id);
+    const response = await this.api.deleteEvent(id);
 
     if (response) {
       this.events = this.events.filter(e => e.id !== id);
