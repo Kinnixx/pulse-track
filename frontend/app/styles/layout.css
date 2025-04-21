@@ -68,7 +68,7 @@ nav ul li a.active {
 }
 
 /* ----- Responsive Logo ----- */
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .logo-text {
     display: none;
   }

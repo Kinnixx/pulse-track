@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../helpers/formatDate.php';
+
 class EventsController
 {
     /**
@@ -13,6 +15,13 @@ class EventsController
     {
         $stmt = $pdo->query("SELECT id, type, message, created_at FROM events ORDER BY created_at DESC");
         $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Format each event's created_at to ISO 8601
+        foreach ($events as &$event) {
+            $event['created_at'] = formatDateToISO8601($event['created_at']);
+        }
+        unset($event); // prevent accidental reference reuse
+
 
         header('Content-Type: application/json');
         echo json_encode($events);

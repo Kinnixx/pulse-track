@@ -71,6 +71,7 @@ img {
     opacity: 0;
     transform: translateX(-50%) translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
@@ -81,6 +82,7 @@ img {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
