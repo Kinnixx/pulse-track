@@ -7,7 +7,6 @@ It showcases a modern stack including:
 - **MariaDB** for relational data storage
 - **RabbitMQ** for message queuing
 - **SolR** for search indexing
-- **ELK Stack** for log management
 - **Ember Octane** for the frontend
 - **Docker Compose** for easy local deployment
 
@@ -23,7 +22,6 @@ This project was created as a technical showcase to demonstrate hands-on experie
 | Database     | MariaDB             |
 | Messaging    | RabbitMQ            |
 | Search       | SolR                |
-| Logging      | ELK Stack           |
 | Frontend     | Ember Octane        |
 | DevOps       | Docker / Docker Compose |
 
